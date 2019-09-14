@@ -630,6 +630,8 @@ globalkeys = awful.util.table.join(globalkeys,
        awful.key({ }, "XF86AudioStop", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop")end))
 root.keys(globalkeys)
 
+-- Autostart, or start if not running at reload
+run_once("xplugd ~/.config/awesome/xplugd.sh")
 run_once("xscreensaver -no-splash")
 run_once("nm-applet")
 run_once("pasystray")
