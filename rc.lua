@@ -631,7 +631,7 @@ globalkeys = awful.util.table.join(globalkeys,
 root.keys(globalkeys)
 
 -- Autostart, or start if not running at reload
-run_once("xplugd ~/.config/awesome/xplugd.sh")
+run_once("xplugd ~/.config/awesome/.xplugrc")
 run_once("xscreensaver -no-splash")
 run_once("nm-applet")
 run_once("pasystray")
