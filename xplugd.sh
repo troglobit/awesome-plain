@@ -14,6 +14,10 @@ case "$type,$device,$status,$desc" in
         xrandr --output $device --primary --auto --right-of LVDS-1
         ;;
 
+  display,DP-2-2,connected,*)
+        xrandr --output $device --primary --auto --right-of eDP-1
+        ;;
+
   display,VGA-1,connected,*)
         xrandr --output $device --auto --left-of LVDS-1 --primary
         ;;
