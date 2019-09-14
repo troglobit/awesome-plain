@@ -2,15 +2,16 @@
 
 ## Requirements
 
-- awesome
 - acpi
-- python-gtk2 / pygtk
-- xplugd
-- xscreensaver
-- nm-applet
-- pasystray
+- awesome
 - blueman-applet
 - lua-socket
+- nm-applet
+- pasystray
+- python-gtk2 / pygtk
+- xcompmgr
+- xplugd
+- xscreensaver
 
 For the weather widget you need an API key, which can be created for
 free here: <https://openweathermap.org/appid>.  Place the key in your
