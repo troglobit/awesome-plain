@@ -639,7 +639,8 @@ root.keys(globalkeys)
 
 -- Autostart, or start if not running at reload
 run_once("xplugd ~/.config/awesome/.xplugrc")
-run_once("xscreensaver -no-splash")
+--run_once("xscreensaver -no-splash")
+run_once("xscreensaver")
 run_once("nm-applet")
 run_once("pasystray")
 run_once("blueman-applet")
