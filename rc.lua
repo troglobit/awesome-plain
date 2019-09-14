@@ -612,3 +612,6 @@ function run_once(cmd)
 end
 
 run_once("xscreensaver -no-splash")
+run_once("nm-applet")
+run_once("pasystray")
+run_once("blueman-applet")
