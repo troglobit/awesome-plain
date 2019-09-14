@@ -22,6 +22,9 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+-- Load local widgets
+--local battery_widget = require("batteryarc-widget.batteryarc")
+local battery_widget = require("battery-widget.battery")
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -230,6 +233,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+	    battery_widget,
             mytextclock,
             s.mylayoutbox,
         },
