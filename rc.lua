@@ -22,6 +22,9 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+-- Load screen manip. library
+local randr = require("randr")
+
 -- Load local widgets
 --local battery_widget = require("batteryarc-widget.batteryarc")
 local battery_widget = require("battery-widget.battery")
@@ -64,6 +67,10 @@ local editor_cmd = terminal .. " -e " .. editor
 --local scrlocker    = "slock"
 local scrlocker    = "xscreensaver-command -lock"
 local dialog       = os.getenv("HOME") .. "/.config/awesome/ctrl-alt-del.py"
+local plug         = os.getenv("HOME") .. "/.config/awesome/.xplugrc"
+
+-- Initialize screen(s)
+randr.init(plug)
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
