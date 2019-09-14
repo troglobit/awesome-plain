@@ -25,6 +25,7 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 -- Load local widgets
 --local battery_widget = require("batteryarc-widget.batteryarc")
 local battery_widget = require("battery-widget.battery")
+local weather_widget = require("weather-widget.weather")
 local cpu_widget = require("cpu-widget.cpu-widget")
 
 -- {{{ Error handling
@@ -237,6 +238,7 @@ awful.screen.connect_for_each_screen(function(s)
             wibox.widget.systray(),
 	    cpu_widget,
 	    battery_widget,
+	    weather_widget,
             mytextclock,
             s.mylayoutbox,
         },
