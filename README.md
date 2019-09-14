@@ -1,4 +1,4 @@
-<img align="center" src="awesome-plain.png" width="600">
+<a href="https://raw.githubusercontent.com/troglobit/awesome-plain/master/awesome-plain.png"><img align="center" src="awesome-plain.png" width="600"></a>
 
 ## Requirements
 
