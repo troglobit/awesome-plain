@@ -61,6 +61,8 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "gtk/theme.lua")
 local terminal = "x-terminal-emulator"
 local editor = os.getenv("EDITOR") or "editor"
 local editor_cmd = terminal .. " -e " .. editor
+--local scrlocker    = "slock"
+local scrlocker    = "xscreensaver-command -lock"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -257,6 +259,14 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    -- X screen locker
+    awful.key({}, "Pause",                function () os.execute(scrlocker) end,
+              {description = "lock screen", group = "hotkeys"}),
+    awful.key({}, "XF86ScreenSaver",      function () os.execute(scrlocker) end,
+              {description = "lock screen", group = "hotkeys"}),
+    awful.key({ modkey, "Control" }, "l", function () os.execute(scrlocker) end,
+              {description = "lock screen", group = "hotkeys"}),
+
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -590,3 +600,15 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+-- Extensions from Debian default --------------------------------------
+function run_once(cmd)
+   findme = cmd
+   firstspace = cmd:find(" ")
+   if firstspace then
+      findme = cmd:sub(0, firstspace-1)
+   end
+   awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+end
+
+run_once("xscreensaver -no-splash")
