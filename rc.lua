@@ -26,8 +26,8 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 local randr = require("randr")
 
 -- Sound and media wrappers
-local sound         = require("sound")
-local media         = require("media")
+local sound = require("sound")
+local media = require("media")
 
 -- Load local widgets
 --local battery_widget = require("batteryarc-widget.batteryarc")
