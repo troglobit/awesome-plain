@@ -70,8 +70,8 @@ local editor = os.getenv("EDITOR") or "editor"
 local editor_cmd = terminal .. " -e " .. editor
 --local scrlocker    = "slock"
 local scrlocker    = "xscreensaver-command -lock"
-local dialog       = os.getenv("HOME") .. "/.config/awesome/ctrl-alt-del.py"
-local plug         = os.getenv("HOME") .. "/.config/awesome/.xplugrc"
+local dialog       = awful.util.getdir("config") .. "/ctrl-alt-del.py"
+local plug         = awful.util.getdir("config") .. "/.xplugrc"
 
 -- Initialize screen(s)
 randr.init(plug)
