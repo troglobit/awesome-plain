@@ -25,6 +25,10 @@ local has_fdo, freedesktop = pcall(require, "freedesktop")
 -- Load screen manip. library
 local randr = require("randr")
 
+-- Sound and media wrappers
+local sound         = require("sound")
+local media         = require("media")
+
 -- Load local widgets
 --local battery_widget = require("batteryarc-widget.batteryarc")
 local battery_widget = require("battery-widget.battery")
@@ -318,6 +322,30 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+
+    -- Media keys
+    awful.key({}, "XF86AudioRaiseVolume", function() sound.incr() end,
+       {description = "Raise Volume", group = "media"}),
+    awful.key({}, "XF86AudioLowerVolume", function() sound.decr() end,
+       {description = "Lower Volume", group = "media"}),
+    awful.key({}, "XF86AudioMute",        function() sound.mute() end,
+       {description = "Mute Sound", group = "media"}),
+    awful.key({}, "XF86AudioNext",        function() media.next() end,
+       {description = "Next Song", group = "media"}),
+    awful.key({ modkey, "Control" }, "Right", function() media.next() end,
+       {description = "Next Song", group = "media"}),
+    awful.key({}, "XF86AudioPrev",        function() media.prev() end,
+       {description = "Prev Song", group = "media"}),
+    awful.key({ modkey, "Control" }, "Left", function() media.prev() end,
+       {description = "Prev Song", group = "media"}),
+    awful.key({}, "XF86AudioPlay",        function() media.play() end,
+       {description = "Play/Pause", group = "media"}),
+    awful.key({ modkey, "Control" }, "Down", function() media.play() end,
+       {description = "Play/Pause", group = "media"}),
+    awful.key({}, "XF86AudioStop",        function() media.stop() end,
+       {description = "Stop Playing", group = "media"}),
+    awful.key({ modkey, "Control" }, "Up", function() media.stop() end,
+       {description = "Stop Playing", group = "media"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
@@ -625,17 +653,6 @@ function run_once(cmd)
    end
    awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
-
--- Mediakeys
-globalkeys = awful.util.table.join(globalkeys,
-           awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%+", false) end),
-       awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 5%-", false) end),
-       awful.key({}, "XF86AudioMute", function() awful.util.spawn('amixer -D pulse sset Master 1+ toggle') end),
-       awful.key({ }, "XF86AudioNext", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")end),
-       awful.key({ }, "XF86AudioPrev", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")end),
-       awful.key({ }, "XF86AudioPlay", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")end),
-       awful.key({ }, "XF86AudioStop", function () awful.util.spawn("dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop")end))
-root.keys(globalkeys)
 
 -- Autostart, or start if not running at reload
 run_once("xcompmgr -cf -t-5 -l-5 -r4.2 -o.55 &")
