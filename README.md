@@ -2,8 +2,12 @@
 
 ## Requirements
 
+Wou need a few programs installed to enjoy all the features, see the
+rc.lua file for the rest:
+
 - acpi
 - awesome
+- backlight
 - blueman-applet
 - lua-socket
 - nm-applet
