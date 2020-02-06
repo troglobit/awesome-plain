@@ -6,6 +6,10 @@ status=$3
 desc=$4
 
 case "$type,$device,$status,$desc" in
+  display,HDMI-2,connected,*)
+        xrandr --output $device --primary --auto --right-of LVDS-1
+        ;;
+
   display,HDMI-3,connected,*)
         xrandr --output $device --primary --auto --left-of LVDS-1
         ;;
