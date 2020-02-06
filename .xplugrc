@@ -27,11 +27,11 @@ case "$type,$device,$status,$desc" in
         ;;
 
   pointer,*,connected,"SynPS/2 Synaptics TouchPad")
-	xinput set-prop $device 'libinput Tapping Enabled' 1
-	xinput set-prop $device 'libinput Natural Scrolling Enabled' 1
-#	xinput set-prop $device 'Synaptics Off' 1
-#	xinput set-prop $device 'Synaptics Edge Scrolling' 0 0 0
-#	xinput set-prop $device 'Synaptics Tap Time' 0
+	xinput set-prop "$device" 'libinput Tapping Enabled' 1
+	xinput set-prop "$device" 'libinput Natural Scrolling Enabled' 1
+#	xinput set-prop "$device" 'Synaptics Off' 1
+#	xinput set-prop "$device" 'Synaptics Edge Scrolling' 0 0 0
+#	xinput set-prop "$device" 'Synaptics Tap Time' 0
         ;;
 
   keyboard,*connected,*)
