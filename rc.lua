@@ -702,7 +702,7 @@ function run_once(cmd)
 end
 
 -- Autostart, or start if not running at reload
---run_once("xcompmgr -cf -t-5 -l-5 -r4.2 -o.55 &")
+run_once("compton -b")
 run_once("xplugd ~/.config/awesome/.xplugrc")
 --run_once("xscreensaver -no-splash")
 run_once("xscreensaver")
