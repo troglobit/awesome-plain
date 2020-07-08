@@ -16,6 +16,7 @@ rc.lua file for the rest:
 - python-gtk2 / pygtk
 - compton
 - xplugd
+- xinput
 - xscreensaver
 
 For the weather widget you need an API key, which can be created for
