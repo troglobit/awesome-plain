@@ -13,7 +13,7 @@ rc.lua file for the rest:
 - nm-applet
 - pasystray
 - python-gtk2 / pygtk
-- xcompmgr
+- compton
 - xplugd
 - xscreensaver
 
