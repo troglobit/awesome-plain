@@ -17,7 +17,7 @@ local wibox = require("wibox")
 -- Battery 0: Discharging, 75%, 01:51:38 remaining
 -- Battery 0: Charging, 53%, 00:57:43 until charged
 
-local PATH_TO_ICONS = "/usr/share/icons/Yaru/scalable/status/"
+local PATH_TO_ICONS = "/usr/share/icons/Adwaita/scalable/status/"
 
 local battery_widget = wibox.widget {
     {
