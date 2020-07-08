@@ -7,7 +7,7 @@ rc.lua file for the rest:
 
 - acpi
 - awesome
-- backlight
+- brightnessctl
 - blueman-applet
 - lua-socket
 - nm-applet

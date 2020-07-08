@@ -361,9 +361,9 @@ globalkeys = gears.table.join(
        {description = "Stop Playing", group = "media"}),
 
     -- Brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("backlight up") end,
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("brightnessctl -q set 10%+") end,
               {description = "Increase brightness", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("backlight down") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("brightnessctl -q set 10%-") end,
               {description = "Decrease brightness", group = "hotkeys"}),
 
     -- Standard program
