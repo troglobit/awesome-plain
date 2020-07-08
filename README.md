@@ -8,6 +8,7 @@ rc.lua file for the rest:
 - acpi
 - awesome
 - brightnessctl
+- playerctl
 - blueman-applet
 - lua-socket
 - nm-applet
